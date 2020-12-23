@@ -1,0 +1,12 @@
+steps:
+- task: NodeTool@0
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: '$(knownHostsEntry)'
+    sshKeySecureFile: 'gh-pages-test-private-key'
+- script: |
+    git config user.name "DaniilShmelev"
+    git config user.email $(primaryGithubEmail)
+- script: npm install
+- script: npm run build
+- script: npx gh-pages -d dist -r git@github.com:DaniilShmelev/gh-pages-test.git
