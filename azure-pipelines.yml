@@ -4,7 +4,7 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '15.x'
-- task: InstallSSHKey@0
+- task: InstallSSHKeyFix@0
   inputs:
     knownHostsEntry: '$(knownHostsEntry)'
     sshKeySecureFile: 'gh-pages-test-private-key'
