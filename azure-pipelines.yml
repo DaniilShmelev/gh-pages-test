@@ -1,4 +1,5 @@
-pool: Centos
+pool:
+  vmImage: windows-latest
 
 steps:
 - task: NodeTool@0
