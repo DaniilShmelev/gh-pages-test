@@ -1,10 +1,10 @@
-pool: Windows
+pool: Centos
 
 steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '15.x'
-- task: InstallSSHKeyFix@0
+- task: InstallSSHKey@0
   inputs:
     knownHostsEntry: '$(knownHostsEntry)'
     sshKeySecureFile: 'gh-pages-test-private-key'
