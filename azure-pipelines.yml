@@ -17,6 +17,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'ssh -vT git@github.com'
+- script: ssh-add -l -E sha256
 - script: npm install
 - script: npm run build
 - script: npx gh-pages -d dist -r git@github.com:DaniilShmelev/gh-pages-test.git
