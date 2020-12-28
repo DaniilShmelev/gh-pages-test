@@ -1,5 +1,4 @@
-pool:
-  vmImage: macos-latest
+pool: Windows
 
 steps:
 - task: NodeTool@0
@@ -8,7 +7,8 @@ steps:
 - task: InstallSSHKeyFix@0
   inputs:
     knownHostsEntry: '$(knownHostsEntry)'
-    sshKeySecureFile: 'gh-pages-test-private-key'
+    sshPassphrase: 'passphrase'
+    sshKeySecureFile: 'with-passphrase'
 - script: |
     git config user.name "DaniilShmelev"
     git config user.email $(primaryGithubEmail)
