@@ -13,11 +13,8 @@ steps:
 - script: |
     git config user.name "DaniilShmelev"
     git config user.email $(primaryGithubEmail)
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'ssh -vT git@github.com'
 - script: ssh-add -l -E sha256
+- script: ssh -vT git@github.com
 - script: npm install
 - script: npm run build
 - script: npx gh-pages -d dist -r git@github.com:DaniilShmelev/gh-pages-test.git
