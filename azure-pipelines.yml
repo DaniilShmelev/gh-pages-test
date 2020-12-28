@@ -7,6 +7,7 @@ steps:
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: '$(knownHostsEntry)'
+    sshPublicKey: '$(publicKey)'
     sshPassphrase: 'passphrase'
     sshKeySecureFile: 'ssh-key'
 - script: |
