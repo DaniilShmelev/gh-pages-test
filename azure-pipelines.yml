@@ -8,18 +8,11 @@ steps:
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: '$(knownHostsEntry)'
-    sshPublicKey: '$(publicKey)'
     sshPassphrase: 'passphrase'
-    sshKeySecureFile: 'ssh-key'
+    sshKeySecureFile: 'id_rsa'
 - script: |
     git config user.name "DaniilShmelev"
     git config user.email $(primaryGithubEmail)
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      eval "$(ssh-agent -s)"
-      ssh-add -l -E sha256
 - script: npm install
 - script: npm run build
 - script: npx gh-pages -d dist -r git@github.com:DaniilShmelev/gh-pages-test.git
